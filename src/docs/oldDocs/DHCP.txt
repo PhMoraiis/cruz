@@ -4,6 +4,7 @@ Client IP Address	Name	Lease Expiration	Type	Unique ID	Description	Network Acces
 10.1.83.12	LNG03C03.sarah.br	17/10/2024 09:02:48	DHCP	48ba4ebc8d71		Full Access	N/A	None	
 10.1.83.13	LNBIOENG04.sarah.br	17/10/2024 09:05:12	DHCP	641c67ecac2f		Full Access	N/A	None	
 10.1.83.14	LNG02C07.sarah.br	17/10/2024 13:05:30	DHCP	48ba4ebc2944		Full Access	N/A	None	
+10.1.83.11	LNINF00.sarah.br	18/10/2024 13:17:31	DHCP	fc15b4d9bbd1		Full Access	N/A	None	
 10.1.83.15	SEPF01D2D59BDFF.sarah.br	17/10/2024 20:36:22	DHCP	f01d2d59bdff		Full Access	N/A	None	
 10.1.83.16	S21-Ultra-de-Eduardo.sarah.br	Reservation (active)	DHCP	28c21f8128ea		Full Access	N/A	None	
 10.1.83.17	LNG04C05.sarah.br	15/10/2024 07:55:40	DHCP	60c7270545c8		Full Access	N/A	None	
