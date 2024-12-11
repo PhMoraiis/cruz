@@ -1,0 +1,15 @@
+meta {
+  name: Upload files Kace
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:8080/upload/kace
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  filePath: @file(/Users/philipe/Projects/MachineRepo/backend_app/src/docs/oldDocs/KACE.csv)
+}

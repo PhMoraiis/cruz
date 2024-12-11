@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./database/dev.db"
+}
+
+// model Processed {
+//   id           String   @id @default(cuid())
+//   filename     String
+//   file_content Bytes
+//   file_type    String // AD, BITDEFENDER, DHCP, KACE
+//   created_at   DateTime @default(now())
+//   updated_at   DateTime @updatedAt
+// }
+
+// model Reports {
+//   id           String   @id @default(cuid())
+//   filename     String
+//   file_content Bytes
+//   report_type  String // Complete or Simple
+//   created_at   DateTime @default(now())
+//   updated_at   DateTime @updatedAt
+// }
+
+model TempAD {
+  id String @id @default(cuid())
+  data String
+  file_path String
+
+  @@map("temp_ad")
+}
+
+model TempDHCP {
+  id String @id @default(cuid())
+  data String?
+  file_path String
+
+  @@map("temp_dhcp")
+}
+
+model TempBIT {
+  id String @id @default(cuid())
+  data String?
+  file_path String
+
+  @@map("temp_bit")
+}
+
+model TempKACE {
+  id String @id @default(cuid())
+  data String?
+  file_path String
+
+  @@map("temp_kace")
+}
+
+model Report {
+  id String @id @default(cuid())
+  name String
+  ad Boolean
+  dhcp Boolean
+  bit Boolean
+  kace Boolean
+
+  @@map("report")
+}

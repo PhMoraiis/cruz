@@ -1,0 +1,19 @@
+meta {
+  name: Get Complete Report
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8080/report/:complete?format=csv
+  body: none
+  auth: none
+}
+
+params:query {
+  format: csv
+}
+
+params:path {
+  complete: complete
+}

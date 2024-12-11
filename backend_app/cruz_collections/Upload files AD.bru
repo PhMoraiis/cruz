@@ -1,0 +1,15 @@
+meta {
+  name: Upload files AD
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/upload/ad
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  filePath: @file(/Users/philipe/Projects/MachineRepo/backend_app/src/docs/oldDocs/ad.txt)
+}

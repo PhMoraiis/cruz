@@ -1,0 +1,15 @@
+meta {
+  name: Upload files Bit
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8080/upload/bit
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  filePath: @file(/Users/philipe/Projects/MachineRepo/backend_app/src/docs/oldDocs/Bitdefender.txt)
+}

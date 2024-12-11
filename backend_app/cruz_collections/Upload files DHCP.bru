@@ -1,0 +1,15 @@
+meta {
+  name: Upload files DHCP
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/upload/dhcp
+  body: multipartForm
+  auth: none
+}
+
+body:multipart-form {
+  filePath: @file(/Users/philipe/Projects/MachineRepo/backend_app/src/docs/oldDocs/DHCP.txt)
+}

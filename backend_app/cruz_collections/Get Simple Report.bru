@@ -1,0 +1,19 @@
+meta {
+  name: Get Simple Report
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8080/report/:simple?format=csv
+  body: none
+  auth: none
+}
+
+params:query {
+  format: csv
+}
+
+params:path {
+  simple: simple
+}
