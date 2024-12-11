@@ -1,0 +1,27 @@
+{
+  "name": "elysia",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.1.1",
+    "@elysiajs/swagger": "^1.1.5",
+    "@prisma/client": "^6.0.1",
+    "@types/file-saver": "^2.0.7",
+    "@types/papaparse": "^5.3.15",
+    "elysia": "latest",
+    "file-saver": "^2.0.5",
+    "papaparse": "^5.4.1",
+    "react-hook-form": "^7.54.0",
+    "xlsx": "^0.18.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "bun-types": "latest",
+    "prisma": "^6.0.1"
+  },
+  "module": "src/index.js"
+}
