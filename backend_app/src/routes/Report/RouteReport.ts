@@ -20,7 +20,7 @@ export const Report = new Elysia().get(
 
     // Configura cabeçalhos para o download
     set.headers = {
-      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET",
       "Access-Control-Allow-Headers": "Content-Type",
       "content-type": format === "txt" ? "text/plain" : "text/csv",
