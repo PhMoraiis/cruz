@@ -23,6 +23,7 @@ import {
 	SelectValue,
 } from "../ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { API_URL } from "@/lib/env";
 
 export function HomeCruz() {
 	const [loadingComplete, setLoadingComplete] = useState(false);
@@ -35,12 +36,13 @@ export function HomeCruz() {
 		const setLoading = type === "complete" ? setLoadingComplete : setLoadingSimple;
 		setLoading(true);
 		try {
-			const response = await fetch(
-				`http://localhost:8080/report/${type}?format=${format}`,
-				{
-					method: "GET",
+			const response = await fetch(`${API_URL}/report/${type}?format=${format}`, {
+				method: "GET",
+				headers: {
+					"Access-Control-Allow-Origin": "*",
+					"Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
 				},
-			);
+			});
 
 			if (!response.ok) {
 				throw new Error("Erro ao gerar o relatório");

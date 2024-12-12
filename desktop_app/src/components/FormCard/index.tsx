@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { API_URL } from "@/lib/env";
 
 const formSchema = z.object({
 	ad: z.instanceof(File).nullable(),
@@ -59,9 +60,13 @@ export function FormCard({
 	// Função para upload
 	async function uploadFile(endpoint: string, formData: FormData) {
 		try {
-			const response = await fetch(`http://localhost:8080/upload/${endpoint}`, {
+			const response = await fetch(`${API_URL}/upload/${endpoint}`, {
 				method: "POST",
 				body: formData,
+				headers: {
+					"Access-Control-Allow-Origin": "*",
+					"Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+				},
 			});
 			if (!response.ok) {
 				const errorText = await response.text(); // Ler a resposta do servidor

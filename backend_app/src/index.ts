@@ -54,18 +54,18 @@ const app = new Elysia()
 	.use(Workspace)
 	.use(Report)
 	.use(cors({
-		origin: 'http://localhost:3000', // Explicitly set the exact origin
+		origin: '*', // Explicitly set the exact origin
 		methods: ['GET', 'POST', 'OPTIONS'], // Add OPTIONS method
 		allowedHeaders: [
 			'Content-Type', 
 			'Authorization', 
 			'Access-Control-Allow-Origin'
 		],
-		credentials: true,
 		exposeHeaders: [
 			'Content-Type', 
 			'Content-Disposition'
-		]
+		],
+		preflight: true
 	}))
 	.listen(8080);
 
