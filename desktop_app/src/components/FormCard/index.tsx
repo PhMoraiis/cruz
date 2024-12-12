@@ -35,15 +35,9 @@ export function FormCard({
 				const formData = new FormData();
 				formData.append(key, value); // Adicionando o arquivo no FormData
 				formData.append("filePath", value); // Adicionando o caminho do arquivo, que pode ser o nome do arquivo
-
 				try {
 					const response = await uploadFile(key, formData); // Enviando para o endpoint baseado no campo
 					console.log(`File ${key} uploaded successfully!`, response);
-					toast({
-						variant: "success",
-						title: "Upload concluído",
-						description: "O upload dos arquivos foi concluído com sucesso!",
-					});
 				} catch (error) {
 					toast({
 						variant: "destructive",
@@ -51,6 +45,12 @@ export function FormCard({
 						description: `O upload dos arquivos falhou: ${error}`,
 					});
 					console.error(`Error uploading file ${key}:`, error);
+				} finally {
+					toast({
+						variant: "success",
+						title: "Upload concluído",
+						description: "O upload dos arquivos foi concluído com sucesso!",
+					});
 				}
 			}
 		}

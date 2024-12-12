@@ -27,6 +27,7 @@ export const KaceService = {
 
   // Método para popular o Kace temporário
   async handlePopulateTempKace(filePath: File) {
+    await Prisma.tempKACE.deleteMany()
     try {
       const savedFilePath = await filesService.saveFile(filePath, 'tempKace')
       const csvContent = await this.formatKaceToCSV(savedFilePath)

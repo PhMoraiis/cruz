@@ -30,6 +30,7 @@ export const DHCPService = {
   },
 
   async handlePopulateTempDHCP(filePath: File) {
+  await Prisma.tempDHCP.deleteMany();
     try {
       const savedFilePath = await filesService.saveFile(filePath, 'tempDHCP')
       const csvContent = await this.formatDHCPToCSV(savedFilePath)
