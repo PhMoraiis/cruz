@@ -32,17 +32,19 @@ export function HomeCruz() {
 	const [format, setFormat] = useState("csv");
 	const { toast } = useToast();
 
-	const downloadReport: (type: "complete" | "simple") => Promise<void> = async (type) => {
-		const setLoading = type === "complete" ? setLoadingComplete : setLoadingSimple;
+	const downloadReport: (type: "complete" | "simple") => Promise<void> = async (
+		type,
+	) => {
+		const setLoading =
+			type === "complete" ? setLoadingComplete : setLoadingSimple;
 		setLoading(true);
 		try {
-			const response = await fetch(`${API_URL}/report/${type}?format=${format}`, {
-				method: "GET",
-				headers: {
-					"Access-Control-Allow-Origin": "*",
-					"Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+			const response = await fetch(
+				`${API_URL}/report/${type}?format=${format}`,
+				{
+					method: "GET",
 				},
-			});
+			);
 
 			if (!response.ok) {
 				throw new Error("Erro ao gerar o relatório");
@@ -147,7 +149,12 @@ export function HomeCruz() {
 									disabled={loadingSimple}
 									onClick={() => downloadReport("complete")}
 								>
-									{loadingComplete ? <Loader color="secondary" /> : <Download />} Download relatório completo
+									{loadingComplete ? (
+										<Loader color="secondary" />
+									) : (
+										<Download />
+									)}{" "}
+									Download relatório completo
 								</Button>
 
 								{/* Botão para baixar relatório simples */}
@@ -157,7 +164,8 @@ export function HomeCruz() {
 									disabled={loadingComplete}
 									onClick={() => downloadReport("simple")}
 								>
-									{loadingSimple ? <Loader color="primary" /> : <Download />} Download relatório simples
+									{loadingSimple ? <Loader color="primary" /> : <Download />}{" "}
+									Download relatório simples
 								</Button>
 							</div>
 						</CardContent>

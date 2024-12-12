@@ -40,33 +40,18 @@ const app = new Elysia()
 			},
 		}),
 	)
-	.onAfterHandle(({ request, set }) => {
-    // Only process CORS requests
-    if (request.method !== "OPTIONS") return;
-
-    const allowHeader = set.headers["Access-Control-Allow-Headers"];
-    if (allowHeader === "*") {
-      set.headers["Access-Control-Allow-Headers"] =
-        request.headers.get("Access-Control-Request-Headers") ?? "";
-    }
-  })
 	.use(Uploads)
 	.use(Workspace)
 	.use(Report)
-	.use(cors({
-		origin: '*', // Explicitly set the exact origin
-		methods: ['GET', 'POST', 'OPTIONS'], // Add OPTIONS method
-		allowedHeaders: [
-			'Content-Type', 
-			'Authorization', 
-			'Access-Control-Allow-Origin'
-		],
-		exposeHeaders: [
-			'Content-Type', 
-			'Content-Disposition'
-		],
-		preflight: true
-	}))
+	.use(
+		cors({
+			origin: "*",
+			methods: ["GET", "POST", "OPTIONS", "PATCH"],
+			allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+			exposeHeaders: ["Content-Disposition"],
+			preflight: true,
+		}),
+	)
 	.listen(8080);
 
 console.log(

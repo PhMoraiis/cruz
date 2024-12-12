@@ -62,14 +62,10 @@ export function FormCard({
 		try {
 			const response = await fetch(`${API_URL}/upload/${endpoint}`, {
 				method: "POST",
-				body: formData,
-				headers: {
-					"Access-Control-Allow-Origin": "*",
-					"Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
-				},
+				body: formData, // Automatically handles headers for multipart
 			});
 			if (!response.ok) {
-				const errorText = await response.text(); // Ler a resposta do servidor
+				const errorText = await response.text();
 				throw new Error(`Server error: ${errorText}`);
 			}
 			return await response.json();
@@ -193,6 +189,8 @@ export function FormCard({
 
 export const Loader = ({ color }: { color: string }) => {
 	return (
-		<div className={`animate-spin rounded-full h-4 w-4 border-b-2 border-${color}`} />
+		<div
+			className={`animate-spin rounded-full h-4 w-4 border-b-2 border-${color}`}
+		/>
 	);
 };
