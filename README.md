@@ -80,16 +80,7 @@ To get a local copy and run it, follow these simple example steps.
 * [Git](https://git-scm.com/downloads)
 
 * [Bun](https://bun.sh)
-<br>
-<br>
-  Windows:
-  ```powershell
-  powershell -c "irm bun.sh/install.ps1 | iex"
-  ```
-  Linux/Mac:
-  ```sh
-  curl -fsSL https://bun.sh/install | bash
-  ```
+
 ### Installation
 ---
 1. Clone the repo
